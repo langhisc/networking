@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "loadingstate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/langhisc/LoadingState",
+      "state" : {
+        "revision" : "84e084930a47c7fab32014e9ffc437288deabb06",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
