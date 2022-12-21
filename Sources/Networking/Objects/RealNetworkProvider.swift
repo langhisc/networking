@@ -10,7 +10,14 @@ import Foundation
 // MARK: - Memory footprint
 
 public struct RealNetworkProvider: Networking {
+
     public let urlSession: URLSession
+
+    // MARK: - Init
+
+    public init(urlSession: URLSession) {
+        self.urlSession = urlSession
+    }
 }
 
 // MARK: - Singleton instance
