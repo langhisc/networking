@@ -10,13 +10,18 @@ import Foundation
 // MARK: - Protocol requirements
 
 public protocol Requestable {
+
     var baseURL: String { get }
     var route: String { get }
     var body: Data? { get }
     var method: HTTPMethod { get }
     var headers: [String: String]? { get }
     var parameters: [String: String]? { get }
+
+    associatedtype Input
     associatedtype Response: Decodable
+
+    init(input: Input)
 }
 
 // MARK: - Type enrichment
@@ -43,5 +48,11 @@ public extension Requestable {
         request.httpBody = body
         request.allHTTPHeaderFields = headers
         return request
+    }
+}
+
+public extension Requestable where Input == Void {
+    init() {
+        self.init(input: ())
     }
 }
