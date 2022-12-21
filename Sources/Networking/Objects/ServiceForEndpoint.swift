@@ -17,11 +17,11 @@ public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject
     private let networkProvider: Networking
     private let transformEndpointResponse: (Endpoint.Response) -> LoadingState<Output, NetworkError>
 
-    @Published var loadingState: LoadingState<Output, NetworkError> = .notStarted
+    @Published public var loadingState: LoadingState<Output, NetworkError> = .notStarted
 
     // MARK: - Init
 
-    init(
+    public init(
         networkProvider: Networking,
         transformEndpointResponse: @escaping (Endpoint.Response) -> LoadingState<Output, NetworkError>
     ) {
