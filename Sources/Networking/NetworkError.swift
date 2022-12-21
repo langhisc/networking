@@ -1,6 +1,5 @@
 //
 //  NetworkError.swift
-//  Desti
 //
 //  Created by Sean Langhi on 9/23/22.
 //
