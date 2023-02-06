@@ -23,7 +23,12 @@ public protocol Requestable {
     init(input: Input)
 }
 
-// MARK: - Type enrichment
+// MARK: - Supporting types
+
+public typealias EmptyInput = Void
+public struct EmptyResponse: Decodable {}
+
+// MARK: - Default implementations
 
 public extension Requestable {
 
@@ -50,7 +55,7 @@ public extension Requestable {
     }
 }
 
-public extension Requestable where Input == Void {
+public extension Requestable where Input == EmptyInput {
     init() {
         self.init(input: ())
     }
