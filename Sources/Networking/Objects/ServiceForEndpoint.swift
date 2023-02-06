@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - Memory footprint
 
-/// General-purpose class for implementing a simple concrete service that makes one request to one endpoint.
+/// A generic class for implementing a simple concrete service that makes one request to one endpoint.
 public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject {
 
     private let networkProvider: Networking
@@ -31,7 +31,7 @@ public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject
 }
 
 public extension ServiceForEndpoint where Endpoint.Response == Output {
-    /// Available when `Endpoint.Response` is the same type as `Output`.  Uses a very basic mapping strategy that simply wraps the response into the `.success` case of `LoadingState`.
+    /// Available when `Endpoint.Response` is the same type as `Output`.  Uses a basic mapping strategy that directly wraps the response into the `.success` case of `LoadingState`.
     convenience init(networkProvider: Networking) {
         self.init(
             networkProvider: networkProvider,
