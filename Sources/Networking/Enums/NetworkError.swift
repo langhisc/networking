@@ -9,9 +9,11 @@ import Foundation
 // MARK: - Enum cases
 
 public enum NetworkError: Error {
-    case requestCreationFailed,
-         httpStatusCode(Int),
-         empty,
-         decodingError,
-         unknown
+    case
+    noMockAvailable,
+    requestCreationFailed,
+    httpStatusCode(Int),
+    empty,
+    decodingError,
+    unknown
 }
