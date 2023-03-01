@@ -10,20 +10,20 @@ import Foundation
 
 // MARK: - Memory footprint
 
-class MockNetworkProvider: Networking {
-    var simulatedLatency: TimeInterval = 1.5
-    var simulatedError: NetworkError?
+public class MockNetworkProvider: Networking {
+    public var simulatedLatency: TimeInterval = 1.5
+    public var simulatedError: NetworkError?
 }
 
 // MARK: - Singleton instance
 
-extension MockNetworkProvider {
+public extension MockNetworkProvider {
     static let shared = MockNetworkProvider()
 }
 
 // MARK: - `Networking` conformance
 
-extension MockNetworkProvider {
+public extension MockNetworkProvider {
     func sendRequest<R: Requestable>(
         for requestable: R
     ) -> AnyPublisher<R.Response, NetworkError> {
