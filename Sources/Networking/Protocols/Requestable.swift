@@ -26,7 +26,7 @@ public protocol Requestable {
 // MARK: - Supporting types
 
 public typealias EmptyInput = Void
-public struct EmptyResponse: Decodable { init() {} }
+public struct EmptyResponse: Decodable { public init() {} }
 
 // MARK: - Default implementations
 
