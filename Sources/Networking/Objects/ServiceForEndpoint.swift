@@ -14,7 +14,7 @@ import SwiftUI
 /// A generic class for implementing a simple concrete service that makes one request to one endpoint.
 public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject {
 
-    private let networkProvider: Networking
+    private let networkProvider: NetworkProvider
     private let transformEndpointResponse: (Endpoint.Response) -> LoadingState<Output, NetworkError>
 
     @Published public var loadingState: LoadingState<Output, NetworkError> = .notStarted
@@ -22,7 +22,7 @@ public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject
     // MARK: - Init
 
     public init(
-        networkProvider: Networking,
+        networkProvider: NetworkProvider,
         transformEndpointResponse: @escaping (Endpoint.Response) -> LoadingState<Output, NetworkError>
     ) {
         self.networkProvider = networkProvider
@@ -32,7 +32,7 @@ public class ServiceForEndpoint<Endpoint: Requestable, Output>: ObservableObject
 
 public extension ServiceForEndpoint where Endpoint.Response == Output {
     /// Available when `Endpoint.Response` is the same type as `Output`.  Uses a basic mapping strategy that directly wraps the response into the `.success` case of `LoadingState`.
-    convenience init(networkProvider: Networking) {
+    convenience init(networkProvider: NetworkProvider) {
         self.init(
             networkProvider: networkProvider,
             transformEndpointResponse: { .success($0) }

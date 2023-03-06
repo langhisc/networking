@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Memory footprint
 
-public struct RealNetworkProvider: Networking {
+public struct RealNetworkProvider: NetworkProvider {
 
     public let urlSession: URLSession
 
@@ -28,7 +28,7 @@ public extension RealNetworkProvider {
     )
 }
 
-// MARK: - `Networking` conformance
+// MARK: - `NetworkProvider` conformance
 
 public extension RealNetworkProvider {
     func sendRequest<R: Requestable>(

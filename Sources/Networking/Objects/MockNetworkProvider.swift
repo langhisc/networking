@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Memory footprint
 
-public class MockNetworkProvider: Networking {
+public class MockNetworkProvider: NetworkProvider {
     public var simulatedLatency: TimeInterval = 1.5
     public var simulatedError: NetworkError?
 }
@@ -21,7 +21,7 @@ public extension MockNetworkProvider {
     static let shared = MockNetworkProvider()
 }
 
-// MARK: - `Networking` conformance
+// MARK: - `NetworkProvider` conformance
 
 public extension MockNetworkProvider {
     func sendRequest<R: Requestable>(
