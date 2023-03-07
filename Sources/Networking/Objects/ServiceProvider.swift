@@ -15,7 +15,7 @@ open class ServiceProvider<Input, Output>: ObservableObject {
 
     @Published public var state: State = .notStarted
 
-    private let networkProvider: any NetworkProvider
+    public let networkProvider: any NetworkProvider
 
     // MARK: - Init
 
