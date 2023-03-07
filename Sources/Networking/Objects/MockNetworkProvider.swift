@@ -12,12 +12,18 @@ import Foundation
 
 public class MockNetworkProvider: NetworkProvider {
 
-    public var simulatedLatency: TimeInterval = 1.5
+    public var simulatedLatency: TimeInterval
     public var simulatedError: NetworkError?
 
     // MARK: - Init
 
-    public init() {}
+    public init(
+        simulatedLatency: TimeInterval = 1.5,
+        simulatedError: NetworkError? = nil
+    ) {
+        self.simulatedLatency = simulatedLatency
+        self.simulatedError = simulatedError
+    }
 }
 
 // MARK: - Singleton instance
