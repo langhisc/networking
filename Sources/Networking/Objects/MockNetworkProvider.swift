@@ -11,8 +11,13 @@ import Foundation
 // MARK: - Memory footprint
 
 public class MockNetworkProvider: NetworkProvider {
+
     public var simulatedLatency: TimeInterval = 1.5
     public var simulatedError: NetworkError?
+
+    // MARK: - Init
+
+    public init() {}
 }
 
 // MARK: - Singleton instance
